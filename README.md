@@ -8,7 +8,7 @@ A command line utility to replace the default GitHub issue labels with ones I fi
 ## What does it do?
 
 ```
-npm install -g github-labeller
+npm install -g github-label-fixer
 ```
 
 then run `labeller`, supply your [GitHub personal token](https://help.github.com/articles/creating-an-access-token-for-command-line-use/), ensuring that token gives the right to edit project labels, then supply your project owner name and the repository name, and it will blow away all the old issue labels and replace them with these:
