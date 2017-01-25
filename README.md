@@ -17,6 +17,7 @@ then run `labeller`, supply your [GitHub personal token](https://help.github.com
   {name: "bug",              color: "ee0701"},
   {name: "documentation",    color: "1d76db"},
   {name: "feature",          color: "0052cc"},
+  {name: "tech debt",        color: "5319e7"},
   {name: "help wanted",      color: "b60205"},
   {name: "please close",     color: "076616"},
   {name: "question",         color: "cc317c"},
@@ -40,5 +41,5 @@ Please see the [contributing notes](CONTRIBUTING.md) for details.
 
 ## Development Status
 
-It works but could do with some polish.
+It works but could do with some polish and needs proper unit tests to be written
 
