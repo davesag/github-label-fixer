@@ -10,13 +10,13 @@ export default (apiToken, folderName) => {
   const githubLabeller = owner => {
     const prompts = promptProps(owner, folderName)
 
-    const defaultPrompts = [prompts.owner, prompts.repo]
+    const defaultPrompts = {owner: prompts.owner, repo: prompts.repo}
 
-    const promptOpts = !apiToken ? [prompts.apiKey, ...defaultPrompts] : defaultPrompts
+    const promptOpts = !apiToken ? {apiToken: prompts.apiToken, ...defaultPrompts} : defaultPrompts
 
     prompt.start()
 
-    prompt.get(promptOpts, (err, results) => {
+    prompt.get({properties: promptOpts}, (err, results) => {
       if (err) {
         console.log('caught error', err)
         return

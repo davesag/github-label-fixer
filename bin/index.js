@@ -8,8 +8,12 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 require('dotenv').config();
 
+process.on('unhandledRejection', function (reason, p) {
+  console.log('Unhandled rejection in promise', p, 'caused by', reason);
+});
+
 const API_TOKEN = process.env.GITHUB_TOKEN;
-const pathArray = __dirname.split('/');
-const folderName = pathArray[pathArray.length - 2];
+const pathArray = process.cwd().split('/');
+const folderName = pathArray[pathArray.length - 1];
 
 (0, _labeller2.default)(API_TOKEN, folderName);

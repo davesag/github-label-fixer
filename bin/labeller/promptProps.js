@@ -13,18 +13,18 @@ const promptProps = (owner, folderName) => {
     owner: {
       name: 'owner',
       validator: /^[a-z0-9A-Z\-]+$/,
-      warning: 'Project name must be only letters or dashes',
-      description: 'Enter the name of the github owner',
+      warning: 'Owner name must be only letters, dashes, or numbers',
+      description: 'Enter the name of the project owner',
       required: true,
       default: owner
     },
     repo: {
       name: 'repo',
       validator: /^[a-z0-9A-Z\-]+$/,
-      warning: 'Repository must be only letters or dashes',
+      warning: 'Owner name must be only letters, dashes, or numbers',
       description: 'Enter the name of the github repo',
       required: true,
-      default: folderName // remove later
+      default: folderName
     }
   };
   return prompts;

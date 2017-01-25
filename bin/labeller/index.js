@@ -4,6 +4,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _username = require('username');
 
 var _username2 = _interopRequireDefault(_username);
@@ -28,13 +30,13 @@ exports.default = (apiToken, folderName) => {
   const githubLabeller = owner => {
     const prompts = (0, _promptProps2.default)(owner, folderName);
 
-    const defaultPrompts = [prompts.owner, prompts.repo];
+    const defaultPrompts = { owner: prompts.owner, repo: prompts.repo };
 
-    const promptOpts = !apiToken ? [prompts.apiKey, ...defaultPrompts] : defaultPrompts;
+    const promptOpts = !apiToken ? _extends({ apiToken: prompts.apiToken }, defaultPrompts) : defaultPrompts;
 
     _prompt2.default.start();
 
-    _prompt2.default.get(promptOpts, (err, results) => {
+    _prompt2.default.get({ properties: promptOpts }, (err, results) => {
       if (err) {
         console.log('caught error', err);
         return;

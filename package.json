@@ -7,8 +7,12 @@
     "node": ">=6.9.4",
     "npm": "^3"
   },
+  "bin": {
+    "labeller": "bin/cli"
+  },
   "scripts": {
-    "clean": "rm -rf bin/",
+    "prepublish": "npm run build",
+    "clean": "rm -rf bin/labeller index.js",
     "start": "node bin/index.js",
     "babel-v": "babel --version",
     "babel": "babel src --out-dir bin",
@@ -22,9 +26,15 @@
   "babel": {
     "presets": [
       [
-        "env", {"targets": {"node": true}}
+        "env",
+        {
+          "targets": {
+            "node": 6.9
+          }
+        }
       ]
-    ]
+    ],
+    "plugins": ["transform-object-rest-spread"]
   },
   "repository": {
     "type": "git",
@@ -37,6 +47,7 @@
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-core": "^6.21.0",
+    "babel-plugin-transform-object-rest-spread": "^6.22.0",
     "babel-preset-env": "^1.1.8",
     "chai": "^3.5.0",
     "chai-as-promised": "^6.0.0",

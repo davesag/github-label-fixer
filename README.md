@@ -11,7 +11,7 @@ A command line utility to replace the default GitHub issue labels with ones I fi
 npm install -g github-labeller
 ```
 
-then run `github-labeller` in your newly cloned GitHub repo, supply your GitHub personal token, project owner name and repository name, and it will blow away all the old issue labels and replace them with these!
+then run `labeller`, supply your [GitHub personal token](https://help.github.com/articles/creating-an-access-token-for-command-line-use/), ensuring that token gives the right to edit project labels, then supply your project owner name and the repository name, and it will blow away all the old issue labels and replace them with these:
 
 ```
   {name: "bug",              color: "ee0701"},
@@ -22,9 +22,6 @@ then run `github-labeller` in your newly cloned GitHub repo, supply your GitHub 
   {name: "question",         color: "cc317c"},
   {name: "ready to merge",   color: "0e8a10"},
   {name: "work in progress", color: "fbca04"},
-  {name: "bug",              color: "ee0701"},
-  {name: "documentation",    color: "1d76db"},
-  {name: "feature",          color: "0052cc"}
 ```
 
 ## Why?
@@ -39,4 +36,5 @@ Please see the [contributing notes](CONTRIBUTING.md) for details.
 
 ## Development Status
 
-In development, not fully functional.
+It works but could do with some polish.
+
