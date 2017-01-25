@@ -1,4 +1,4 @@
-# How to contribute to the GitHub Labeller project
+# How to contribute to the GitHub Label Fixer project
 
 ## Development Environment
 
@@ -14,7 +14,7 @@ See this handy, if ugly, [cheat sheet](http://danielkummer.github.io/git-flow-ch
 
 1. Fork this repo into your personal GitHub account
 2. clone your fork to your local development machine
-3. Set this repo as the `upstream` repo `git remote add upstream git@github.com:davesag/github-labeller.git`
+3. Set this repo as the `upstream` repo `git remote add upstream git@github.com:davesag/github-label-fixer.git`
 4. Disallow direct pushing to upstream `git remote set-url --push upstream no_push` (just to be safe)
 5. create a local `master` branch `git checkout -b master` and test it via `git pull upstream master`
 6. ensure you have installed the [`git-flow` command line helpers](https://github.com/nvie/gitflow) and [`git-flow-completion` utils](https://github.com/bobthecow/git-flow-completion) then run `git flow init -d`.

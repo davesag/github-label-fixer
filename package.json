@@ -1,5 +1,5 @@
 {
-  "name": "github-labeller",
+  "name": "github-label-fixer",
   "version": "0.0.9",
   "description": "A command line utility to replace the default GitHub issue labels with ones Dave Sag finds more useful",
   "main": "bin/index.js",
@@ -12,7 +12,7 @@
   },
   "scripts": {
     "prepublish": "npm run build",
-    "clean": "rm -rf bin/labeller/*.js index.js",
+    "clean": "rm -rf bin/labeller/*.js bin/index.js",
     "start": "node bin/index.js",
     "babel-v": "babel --version",
     "babel": "babel src --out-dir bin",
@@ -38,12 +38,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/davesag/github-labeller.git"
+    "url": "git+https://github.com/davesag/github-label-fixer.git"
   },
   "bugs": {
-    "url": "https://github.com/davesag/github-labeller/issues"
+    "url": "https://github.com/davesag/github-label-fixer/issues"
   },
-  "homepage": "https://github.com/davesag/github-labeller#readme",
+  "homepage": "https://github.com/davesag/github-label-fixer#readme",
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-core": "^6.21.0",
