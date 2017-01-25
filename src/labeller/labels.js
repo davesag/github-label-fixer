@@ -6,6 +6,7 @@ export const LABELS = [
   {name: "please close",     color: "076616"},
   {name: "question",         color: "cc317c"},
   {name: "ready to merge",   color: "0e8a10"},
+  {name: "tech debt",        color: "5319e7"},
   {name: "work in progress", color: "fbca04"}
 ]
 
