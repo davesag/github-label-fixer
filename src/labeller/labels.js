@@ -10,3 +10,10 @@ export const LABELS = [
 ]
 
 export const LABEL_NAMES = LABELS.map(label => label.name)
+
+export const reduceLabels = (acc, elem) => {
+  acc[elem.name] = elem.color
+  return acc
+}
+
+export const LABEL_COLORS = LABELS.reduce(reduceLabels, {})

@@ -20,6 +20,8 @@ var _github = require('./github');
 
 var _github2 = _interopRequireDefault(_github);
 
+var _labels = require('./labels');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = (apiToken, folderName) => {
@@ -38,13 +40,31 @@ exports.default = (apiToken, folderName) => {
         return;
       }
       const token = apiToken || results.apiToken;
-      const { getLabels } = (0, _github2.default)(token);
+      const { getLabels, updateLabelColor, deleteLabel, createLabel } = (0, _github2.default)(token);
       const { owner, repo } = results;
-      getLabels(owner, repo).then(({ common, missing, extra }) => {
-        console.log('common', common);
-        console.log('missing', missing);
-        console.log('extra', extra);
-        // ... to be continued.
+      getLabels(owner, repo).then(({ commonColors, common, missing, extra }) => {
+        let promises = [];
+        common.forEach(label => {
+          if (commonColors[label] !== _labels.LABEL_COLORS[label]) {
+            console.log('update colour of', label, 'from', commonColors[label], 'to', _labels.LABEL_COLORS[label]);
+            promises.push(updateLabelColor(owner, repo, label, _labels.LABEL_COLORS[label]));
+          }
+        });
+        Promise.all(promises).then(() => {
+          promises = [];
+          extra.forEach(label => {
+            promises.push(deleteLabel(owner, repo, label));
+          });
+          Promise.all(promises).then(() => {
+            promises = [];
+            missing.forEach(label => {
+              promises.push(createLabel(owner, repo, label, _labels.LABEL_COLORS[label]));
+            });
+            Promise.all(promises).then(() => {
+              console.log('Label updates complete');
+            }, err => console.log('caught creating missing labels', err));
+          }, err => console.log('caught error deleting extra labels', err));
+        }, err => console.log('caught error updating colours', err));
       }, err => console.log('error', err));
     });
   };
