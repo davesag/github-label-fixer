@@ -28,6 +28,10 @@ then run `labeller`, supply your [GitHub personal token](https://help.github.com
 
 I find the labels above more useful and I was sick of making the same changes by hand each time.
 
+## Requirements
+
+It's built for Node 6.9 or better. `nvm install 6.9.4` to ensure you are running the latest supported version of node.
+
 ## Conbtributing
 
 I am a fan of using the `forked git-flow` process to manage contributions.
