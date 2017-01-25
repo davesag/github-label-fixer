@@ -2,8 +2,8 @@
 
 A command line utility to replace the default GitHub issue labels with ones I find more useful
 
-* `develop` [![Build Status](https://travis-ci.org/davesag/github-labeller.svg?branch=develop)](https://travis-ci.org/davesag/github-labeller)
-* `master` [![Build Status](https://travis-ci.org/davesag/github-labeller.svg?branch=master)](https://travis-ci.org/davesag/github-labeller)
+* `develop` [![Build Status](https://travis-ci.org/davesag/github-label-fixer.svg?branch=develop)](https://travis-ci.org/davesag/github-label-fixer)
+* `master` [![Build Status](https://travis-ci.org/davesag/github-label-fixer.svg?branch=master)](https://travis-ci.org/davesag/github-label-fixer)
 
 ## What does it do?
 
