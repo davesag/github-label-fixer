@@ -1,6 +1,6 @@
 {
   "name": "github-labeller",
-  "version": "1.0.0",
+  "version": "0.0.9",
   "description": "A command line utility to replace the default GitHub issue labels with ones Dave Sag finds more useful",
   "main": "bin/index.js",
   "engines": {
@@ -12,7 +12,7 @@
   },
   "scripts": {
     "prepublish": "npm run build",
-    "clean": "rm -rf bin/labeller index.js",
+    "clean": "rm -rf bin/labeller/*.js index.js",
     "start": "node bin/index.js",
     "babel-v": "babel --version",
     "babel": "babel src --out-dir bin",
