@@ -17,12 +17,12 @@ then run `labeller`, supply your [GitHub personal token](https://help.github.com
   {name: "bug",              color: "ee0701"},
   {name: "documentation",    color: "1d76db"},
   {name: "feature",          color: "0052cc"},
-  {name: "tech debt",        color: "5319e7"},
   {name: "help wanted",      color: "b60205"},
   {name: "please close",     color: "076616"},
   {name: "question",         color: "cc317c"},
   {name: "ready to merge",   color: "0e8a10"},
-  {name: "work in progress", color: "fbca04"},
+  {name: "tech debt",        color: "5319e7"},
+  {name: "work in progress", color: "fbca04"}
 ```
 
 ## Why?
@@ -33,6 +33,22 @@ I find the labels above more useful and I was sick of making the same changes by
 
 It's built for Node 6.9 or better. `nvm install 6.9.4` to ensure you are running the latest supported version of node.
 
+## Development
+
+To run this in development mode
+
+```sh
+npm run dev
+```
+
+## Tests
+
+To run the unit tests
+
+```sh
+npm test
+```
+
 ## Conbtributing
 
 I am a fan of using the `forked git-flow` process to manage contributions.
@@ -41,5 +57,9 @@ Please see the [contributing notes](CONTRIBUTING.md) for details.
 
 ## Development Status
 
-It works but could do with some polish and needs proper unit tests to be written
+It is working and core github access functions are unit tested.
 
+### Version history
+
+* `1.0.0` — current version.
+* `0.0.9` — worked but without any unit tests

@@ -1,4 +1,4 @@
-import request  from 'request-promise-native'
+import request from 'request-promise-native'
 import {intersection, complement} from 'set-manipulator'
 
 import {LABEL_NAMES, LABEL_COLORS, reduceLabels} from './labels'
@@ -6,20 +6,18 @@ import userAgent from './userAgent'
 
 const BASE = 'https://api.github.com'
 
-export default apiToken => {
+const github = apiToken => {
   const auth = {
     bearer: apiToken
   }
 
   const getLabels = (owner, repo) => {
     const options = {
-      url: `${BASE}/repos/${owner}/${repo}/labels`,
-      method: 'get',
       headers: userAgent,
       auth
     }
     return new Promise((resolve, reject) => {
-      request(options).then(
+      request.get(`${BASE}/repos/${owner}/${repo}/labels`, options).then(
         response => {
           const result = JSON.parse(response)
           const labelColors = result.reduce(reduceLabels, {})
@@ -42,35 +40,27 @@ export default apiToken => {
   const updateLabelColor = (owner, repo, name, color) => {
     const body = JSON.stringify({name, color})
     const options = {
-      url: `${BASE}/repos/${owner}/${repo}/labels/${encodeURIComponent(name)}`,
-      method: 'patch',
       headers: userAgent,
       auth,
       body
     }
     return new Promise((resolve, reject) => {
-      request(options).then(
-        response => {
-          // console.log('response', response)
-          return resolve() // no need for anything back
-        }, reject
+      request.patch(`${BASE}/repos/${owner}/${repo}/labels/${encodeURIComponent(name)}`, options).then(
+        response => resolve(),
+        reject
       )
     })
   }
 
   const deleteLabel = (owner, repo, name) => {
     const options = {
-      url: `${BASE}/repos/${owner}/${repo}/labels/${encodeURIComponent(name)}`,
-      method: 'delete',
       headers: userAgent,
       auth
     }
     return new Promise((resolve, reject) => {
-      request(options).then(
-        response => {
-          // console.log('response', response)
-          return resolve() // no need for anything back
-        }, reject
+      request.delete(`${BASE}/repos/${owner}/${repo}/labels/${encodeURIComponent(name)}`, options).then(
+        response => resolve(),
+        reject
       )
     })
   }
@@ -78,18 +68,14 @@ export default apiToken => {
   const createLabel = (owner, repo, name, color) => {
     const body = JSON.stringify({name, color})
     const options = {
-      url: `${BASE}/repos/${owner}/${repo}/labels`,
-      method: 'post',
       headers: userAgent,
       auth,
       body
     }
     return new Promise((resolve, reject) => {
-      request(options).then(
-        response => {
-          // console.log('response', response)
-          return resolve() // no need for anything back
-        }, reject
+      request.post(`${BASE}/repos/${owner}/${repo}/labels`, options).then(
+        response => resolve(),
+        reject
       )
     })
   }
@@ -101,3 +87,4 @@ export default apiToken => {
     createLabel
   }
 }
+module.exports = github
