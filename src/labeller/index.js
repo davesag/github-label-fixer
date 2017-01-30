@@ -13,7 +13,7 @@ export default (apiToken, folderName) => {
     const defaultPrompts = {owner: prompts.owner, repo: prompts.repo}
 
     const promptOpts = !apiToken ? {apiToken: prompts.apiToken, ...defaultPrompts} : defaultPrompts
-
+    prompt.message = 'Labeller'
     prompt.start()
 
     prompt.get({properties: promptOpts}, (err, results) => {
