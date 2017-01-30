@@ -1,6 +1,6 @@
-# github-labeller
+# github-label-fixer
 
-A command line utility to replace the default GitHub issue labels with ones I find more useful
+An opinionated command line utility to replace the default GitHub issue labels with ones I find more useful
 
 * `develop` [![Build Status](https://travis-ci.org/davesag/github-label-fixer.svg?branch=develop)](https://travis-ci.org/davesag/github-label-fixer)
 * `master` [![Build Status](https://travis-ci.org/davesag/github-label-fixer.svg?branch=master)](https://travis-ci.org/davesag/github-label-fixer)
